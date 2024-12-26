@@ -2,16 +2,15 @@ import streamlit as st
 import os
 
 # Streamlit app
-st.set_page_config(page_title="Photo Upload App", page_icon="\ud83d\udcf8", layout="centered")
+st.set_page_config(page_title="Photo Upload App", page_icon="📸", layout="centered")
 
 # Custom CSS for modern UI
 st.markdown(
     """
     <style>
     body {
-        background: linear-gradient(to bottom right, #1e3a8a, #a1c4fd);
+        background: linear-gradient(to bottom right, #f9f9f9, #e3f2fd);
         font-family: 'Arial', sans-serif;
-        color: #ffffff;
     }
     .stButton>button {
         background-color: #6200ea;
@@ -27,7 +26,7 @@ st.markdown(
         background-color: #3700b3;
     }
     .stMarkdown h1 {
-        color: #ffffff;
+        color: #1a237e;
         font-size: 2.5rem;
         font-weight: bold;
     }
@@ -36,8 +35,7 @@ st.markdown(
         border-radius: 8px;
         margin-top: 10px;
         padding: 10px;
-        background-color: rgba(255, 255, 255, 0.8);
-        color: #000000;
+        background-color: white;
     }
     </style>
     """,
@@ -45,11 +43,11 @@ st.markdown(
 )
 
 # Title and description
-st.title("\ud83d\udcf8 Photo Upload App")
+st.title("📸 Photo Upload App")
 st.markdown(
     """
     <div style="text-align: center; margin-top: -10px;">
-        Welcome to the **Photo Upload App**! \ud83c\udf89<br>
+        Welcome to the **Photo Upload App**! 🎉<br>
         Upload your favorite photos in JPG or PNG format.<br>
         Save them locally with just a click.
     </div>
@@ -74,22 +72,23 @@ if uploaded_file is not None:
     with col1:
         st.markdown("**Photo Name:** " + uploaded_file.name)
     with col2:
-        if st.button("\ud83d\udcbe Save Photo"):
+        if st.button("💾 Save Photo"):
             with st.spinner("Saving your photo..."):
                 # Save the uploaded file locally
                 local_file_path = os.path.join("uploaded_photos", uploaded_file.name)
                 os.makedirs("uploaded_photos", exist_ok=True)  # Create directory if it doesn't exist
                 with open(local_file_path, "wb") as f:
                     f.write(uploaded_file.getbuffer())
-                st.success(f"\u2705 Photo saved successfully! \n\ud83d\udcc1 Location: `{local_file_path}`")
+                st.success(f"✅ Photo saved successfully! \n📁 Location: `{local_file_path}`")
 
 # Footer
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px;">
         <hr>
-        <p>Made with \u2764\ufe0f using <a href="https://streamlit.io/" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: bold;">Streamlit</a></p>
+        <p>Made with ❤️ using <a href="https://streamlit.io/" target="_blank" style="color: #1a237e; text-decoration: none; font-weight: bold;">Streamlit</a></p>
     </div>
     """,
     unsafe_allow_html=True
 )
+
